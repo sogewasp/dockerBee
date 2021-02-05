@@ -1,2 +1,9 @@
 #!/usr/bin/bash
-docker run -ti --device=/dev/ttyUSB0 docker-killerbee
+
+if [ "$#" == 2 ];then
+	TTY=$1
+else
+	TTY="/dev/ttyUSB0"
+fi
+
+docker run -ti --rm --net=host --cap-add=NET_ADMIN -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  --device=$TTY docker-killerbee
