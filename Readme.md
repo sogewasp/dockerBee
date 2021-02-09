@@ -1,6 +1,6 @@
 
 # DockerBee
-## a quick and easy to use killerbee
+## a quick and easy killerbee
 
 Killerbee:
 https://github.com/riverloopsec/killerbee
@@ -11,13 +11,17 @@ Build the container:
 
 `docker build -t docker-killerbee .`
 
-To use with Wireshark GUI you have to add `docker` to xhost:
+To use GUI you have to add `docker` to xhost:
 
 `xhost +local:docker`
 
 This poses some security concerns, so you might want to revert later:
 
 `xhost -local:docker`
+
+### Alert
+There are numerous security concern in using a Docker in privileged mode, sharing the X11 socket, adding docker to xhosts.
+Please take in consideration those risks when using this app.
 
 ## Run
 
